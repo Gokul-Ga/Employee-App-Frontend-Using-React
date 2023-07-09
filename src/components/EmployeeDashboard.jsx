@@ -1,32 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Table, TableHead, TableRow, TableCell, TableBody } from '@mui/material';
+import '../App.css'
 
 const EmployeeDashboard = () => {
   const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-        setEmployees(response.data);
-      } catch (error) {
-        console.error('Error fetching employee data:', error);
-      }
+    const fetchData = () => {
+      axios.get('https://jsonplaceholder.typicode.com/users')
+        .then(response => {
+          setEmployees(response.data);
+        })
+        .catch(error => {
+          console.error('Error fetching employee data:', error);
+        });
     };
 
     fetchData();
   }, []);
 
   return (
-    <div>
+    <div className='App'>
       <h2>Employee Dashboard</h2>
-      <Table>
+      <Table className='App' style={{ border: 'solid 5px gray' }}>
         <TableHead>
           <TableRow>
-            <TableCell>ID</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Email</TableCell>
+            <TableCell style={{ fontSize: '20px', fontWeight: 'bolder' }}>ID</TableCell>
+            <TableCell style={{ fontSize: '20px', fontWeight: 'bolder' }}>Name</TableCell>
+            <TableCell style={{ fontSize: '20px', fontWeight: 'bolder' }}>Email</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

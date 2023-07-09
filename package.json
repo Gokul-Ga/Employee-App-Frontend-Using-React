@@ -2,7 +2,7 @@
 {
   "name": "employee-app-frontend",
   "version": "0.1.0",
-  "homepage": "https://github.com/Gokul-Ga/Employee-App-Frontend-Using-React.git",
+  "homepage": "https://gokul-ga.github.io/Employee-App-Frontend-Using-React/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
